@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.filter {
+  background-color: #e0e0e0;
+  height: 100vh
+}
+
+.filter label {
+  color: black;
+}
