@@ -1,4 +1,4 @@
-import { NoteRow } from "./NoteRow";
+import { NoteCard } from "./NoteCard";
 
 function NoteList(props) {
   const { notes, onDelete } = props;
@@ -6,7 +6,7 @@ function NoteList(props) {
     <div>
       {notes.map((note, index) => {
         return (
-          <NoteRow
+          <NoteCard
             key={note.id}
             no={index + 1}
             index={index}
@@ -15,8 +15,8 @@ function NoteList(props) {
             createdAt={note.createdAt}
             onDelete={onDelete}
           >
-            {note.description}
-          </NoteRow>
+            {note.body}
+          </NoteCard>
         );
       })}
     </div>

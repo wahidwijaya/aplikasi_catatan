@@ -45,8 +45,8 @@ let array_notes = [
     return array_notes;
   }
   
-  function deleteNotes(deleted_index) {
-    array_notes = array_notes.filter((note, index) => index !== deleted_index);
+  function deleteNotes(deleted_id) {
+    array_notes = array_notes.filter((note, index) => note.id !== deleted_id);
   }
   
   export { addNotes, getNotes, deleteNotes };

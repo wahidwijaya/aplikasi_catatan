@@ -1,27 +1,29 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
-import { addNotes } from "../utils/local";
+import { useNavigate, useParams } from "react-router-dom";
+import { addNote } from "../utils/network";
 import "../App.css";
 
 function AddNote(props) {
   const navigate = useNavigate();
+  const { username } = useParams();
 
   const [note, setNote] = useState({
     title: "",
     createdAt: new Date().toISOString().split('T')[0],
-    description: "",
+    body: "",
   });
 
   function onSubmitHandler(event) {
     event.preventDefault();
-    addNotes(note);
-    navigate("/");
+    addNote(note);
+    console.log(note);
+    navigate(`/${username}`);
   }
 
   return (
-    <div className="p-2 filter">
-      <strong className="fs-1 text-center text-dark">Form Add Note</strong>
+    <div className="p-2" style={{ height: '100vh', backgroundColor: '#318EAD' }}>
+      <strong className="fs-1 text-center text-light">Form Add Note</strong>
       <Form
         className="row g-3 m-5 text-light"
         onSubmit={(event) => {
@@ -36,36 +38,36 @@ function AddNote(props) {
               setNote({ ...note, title: value });
             }}
             type="text"
-            placeholder="Add Title"
+            placeholder="Masukkan Title"
             required
           />
         </Form.Group>
         <Form.Group className="col-12 text-start">
-          <Form.Label>Description</Form.Label>
+          <Form.Label>Body</Form.Label>
           <Form.Control
             onChange={(event) => {
               const value = event.target.value;
-              setNote({ ...note, description: value });
+              setNote({ ...note, body: value });
             }}
             type="text"
-            placeholder="Add Description"
+            placeholder="Masukkan Body"
             as="textarea"
             rows={3}
             required
           />
         </Form.Group>
-        {note.title && note.description ? (
+        {note.title && note.body ? (
           <Button
-            className="col-2 btn-outline-primary position-relative start-50 translate-middle-x"
-            variant="light"
+            className="col-2 btn-outline-light position-relative start-50 translate-middle-x"
+            variant="info"
             type="submit"
           >
             Buat Catatan
           </Button>
         ) : (
           <Button
-            className="col-2 btn-outline-primary position-relative start-50 translate-middle-x"
-            variant="light"
+            className="col-2 btn-outline-light position-relative start-50 translate-middle-x"
+            variant="info"
             type="submit"
             disabled
           >

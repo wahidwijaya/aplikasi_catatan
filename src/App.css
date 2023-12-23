@@ -28,6 +28,51 @@
   color: #61dafb;
 }
 
+nav {
+  background-color: #225A76;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+
+.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 10px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content button {
+  width: 150px;
+  border: none;
+  padding: 10px;
+}
+
+.dropdown-content button {
+  cursor: pointer;
+  color: black;
+  display: block;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.dropdown-content button:hover {
+  background-color: darkblue;
+  color: white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,13 +80,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-.filter {
-  background-color: #e0e0e0;
-  height: 100vh
-}
-
-.filter label {
-  color: black;
 }

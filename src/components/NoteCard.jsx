@@ -2,14 +2,14 @@ import { DeleteButton } from "./DeleteButton";
 
 import PropTypes from "prop-types";
 
-function NoteRow({ no, title, createdAt, children, id, index, onDelete }) {
+function NoteCard({ no, title, createdAt, children, id, index, onDelete }) {
   return (
-    <div className="note-container fs-4 mb-3 p-2 bg-primary text-light rounded">
-      <div className="note-header card-header d-flex justify-content-between align-items-center bg-primary text-light p-2">
+    <div className="note-container fs-4 mb-3 p-2 bg-info text-light">
+      <div className="note-header card-header d-flex justify-content-between align-items-center bg-info text-light p-2">
         <div>Catatan {no}</div>
         <DeleteButton index={index} id={id} onDelete={onDelete} />
       </div>
-      <div className="note-card card p-2 bg-info bg-white">
+      <div className="note-card card p-2 bg-white">
         <div className="card-header d-flex justify-content-between">
           <h5 className="card-title">{title}</h5>
           <div className="card-text fs-5">{createdAt}</div>
@@ -20,7 +20,7 @@ function NoteRow({ no, title, createdAt, children, id, index, onDelete }) {
   );
 }
 
-NoteRow.propTypes = {
+NoteCard.propTypes = {
   no: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   createdAt: PropTypes.string.isRequired,
@@ -30,4 +30,4 @@ NoteRow.propTypes = {
   onDelete: PropTypes.func.isRequired,
 };
 
-export { NoteRow };
+export { NoteCard };
